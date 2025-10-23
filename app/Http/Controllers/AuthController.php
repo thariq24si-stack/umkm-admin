@@ -29,7 +29,7 @@ class AuthController extends Controller
     
         $email = $request->email;
     
-        return view('auth.success' , ['email' => $email]);
+        return redirect()->route('home')->with('success', 'Selamat datang, ' . $email . '!');
     
     }
 

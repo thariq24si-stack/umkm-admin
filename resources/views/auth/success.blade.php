@@ -57,6 +57,8 @@
         <p class="lead">Anda sudah berhasil login.</p>
 
         <a href="{{ url('/auth') }}" class="btn btn-primary mt-4">Kembali ke Login</a>
+        <a href="{{ url('/auth') }}" class="btn btn-primary mt-4">Halaman Admin</a>
+
     </div>
 
 </body>
