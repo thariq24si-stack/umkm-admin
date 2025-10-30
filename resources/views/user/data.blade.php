@@ -60,8 +60,8 @@
                     <p class="mb-0">Daftar seluruh produk UMKM</p>
                 </div>
                 <div>
-                    <a href="{{ route('produk.create') }}" class="btn btn-success text-white">
-                        
+                    <a href="{{ route('user.create') }}" class="btn btn-success text-white">
+                        Tambah user
                     </a>
                 </div>
             </div>
@@ -75,39 +75,19 @@
                             <table class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Nama Produkk</th>
-                                        <th>Deskripsi</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                        <th>Status</th>
-                                        <th>UMKM ID</th>
-                                        <th>Foto</th>
-                                        <th>Aksi</th>
+                                        <th>Nama User</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($dataProduk as $item)
+                                    @foreach($dataUser as $user)
                                         <tr>
-                                            <td>{{ $item->nama_produk }}</td>
-                                            <td>{{ $item->deskripsi }}</td>
-                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                            <td>{{ $item->stok }}</td>
+                                            <td>{{ $user->name}}</td>
+                                              <td>{{ $user->email}}</td>
+                                           
                                             <td>
-                                                <span class="badge bg-{{ $item->status == 'Tersedia' ? 'success' : 'danger' }}">
-                                                    {{ $item->status }}
-                                                </span>
-                                            </td>
-                                            <td>{{ $item->umkm_id }}</td>
-                                            <td>
-                                                @if($item->foto)
-                                                    <img src="{{ asset($item->foto) }}" width="50" class="rounded">
-                                                @else
-                                                    <small class="text-muted">Tidak ada</small>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('produk.edit', $item->produk_id) }}" class="btn btn-info btn-sm">Edit</a>
-                                                <form action="{{ route('produk.destroy', $item->produk_id) }}" method="POST" style="display:inline">
+                                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                                <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
@@ -118,7 +98,7 @@
                                 </tbody>
                             </table>
 
-                            @if($dataProduk->isEmpty())
+                            @if($dataUser->isEmpty())
                                 <p class="text-center mt-3 text-muted">Belum ada data produk.</p>
                             @endif
                         </div>

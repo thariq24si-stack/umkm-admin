@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', function () {
@@ -54,7 +57,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('warga', WargaController::class);
 Route::get('/data', [WargaController::class, 'index'])->name('data');
 
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 
 
 Route::resource('produk', ProdukController::class);
+
+Route::resource('user', UserController::class);
+
+Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 

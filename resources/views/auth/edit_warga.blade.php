@@ -41,7 +41,6 @@
 </head>
 
 
-    <h1>Selamat datang di halaman Home</h1>
          <body>
        
     <div class="position-fixed top-0 start-50 translate-middle-x mt-3 z-3" style="width: 90%; max-width: 600px;">

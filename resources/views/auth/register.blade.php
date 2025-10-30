@@ -70,7 +70,7 @@
             </div>
         @endif
 
-        <form action="{{ route('register') }}" method="POST" class="text-left">
+        <form action="{{ route('auth.index') }}" method="POST" class="text-left">
             @csrf
 
             <!-- Email -->
