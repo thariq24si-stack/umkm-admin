@@ -45,8 +45,9 @@ Route::get('/about', function () {
     return view('halaman-about');
 });
 
-Route::get('/auth', [AuthController::class, 'index'])->name('auth.index');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.index');
 Route::post('/auth/success', [AuthController::class, 'login'])->name('auth.login');
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
