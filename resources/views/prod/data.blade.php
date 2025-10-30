@@ -75,7 +75,7 @@
                             <table class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Nama Produk</th>
+                                        <th>Nama Produkk</th>
                                         <th>Deskripsi</th>
                                         <th>Harga</th>
                                         <th>Stok</th>
