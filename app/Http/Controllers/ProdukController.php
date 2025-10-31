@@ -13,7 +13,7 @@ class ProdukController extends Controller
     public function index()
     {
         $data['dataProduk'] = Produk::all();
-        return view('prod.data', $data);
+        return view('pages.prod.data', $data);
     }
 
     /**
@@ -21,7 +21,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('prod.produk');
+        return view('pages.prod.produk');
     }
 
     /**
@@ -36,7 +36,7 @@ class ProdukController extends Controller
         $data['deskripsi'] = $request->deskripsi;
         $data['umkm_id'] = $request->umkm_id;
 
-         
+
 
     $data = $request->except('foto');
 
@@ -67,7 +67,7 @@ class ProdukController extends Controller
     public function edit(string $id)
     {
         $data['dataProduk'] = Produk::findOrFail($id);
-        return view('prod.edit_produk', $data);
+        return view('pages.prod.edit_produk', $data);
     }
 
     /**

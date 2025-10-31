@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
            $data['dataUser'] = User::all();
-        return view('user.data', $data);
+        return view('pages.user.data', $data);
 
     }
 
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.user_home');
+        return view('pages.user.user_home');
     }
 
     /**
@@ -36,7 +36,7 @@ class UserController extends Controller
               $request->validate([
         'name' => 'required|string|max:100',
         'email' => 'required|email|unique:users,email',
-        'password' => 'required|min:8|confirmed', 
+        'password' => 'required|min:8|confirmed',
     ]);
 
     // Simpan data pengguna baru
@@ -64,7 +64,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
          $data['dataUser'] = User::findOrFail($id);
-    return view('user.edit_user', $data);
+    return view('pages.user.edit_user', $data);
     }
 
     /**
@@ -84,7 +84,7 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::findorfail($id);
-        
+
         $user->delete();
         return redirect()->route('user.index')->with('success', 'Data berhasil dihapus!');
     }

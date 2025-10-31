@@ -12,9 +12,9 @@ class WargaController extends Controller
      */
     public function index()
     {
-        
+
 		$data['dataWarga'] = Warga::all();
-		return view('auth.data',$data);
+		return view('pages.warga.data',$data);
 
     }
 
@@ -37,9 +37,9 @@ class WargaController extends Controller
 		$data['gender'] = $request->gender;
 		$data['email'] = $request->email;
 		$data['phone'] = $request->phone;
-		
+
 		Warga::create($data);
-		
+
 		return redirect()->route('home')->with('success','Penambahan Data Berhasil!');
     }
 
@@ -58,7 +58,7 @@ class WargaController extends Controller
     {
 
     $data['dataWarga'] = Warga::findOrFail($id);
-    return view('auth.edit_warga', $data);
+    return view('pages.warga.edit_warga', $data);
 
     }
 
@@ -67,7 +67,7 @@ class WargaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+
     $warga = Warga::findOrFail($id);
     $warga->update($request->all());
 
@@ -82,7 +82,7 @@ class WargaController extends Controller
     public function destroy(string $id)
     {
         $warga = warga::findorfail($id);
-        
+
         $warga->delete();
         return redirect()->route('warga.index')->with('success', 'Data berhasil dihapus!');
 

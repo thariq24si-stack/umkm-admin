@@ -61,7 +61,7 @@
                                                         <small class="text-danger">2 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome new project".</p>
+                                                <p class="font-small mt-1 mb-0">Youve been assigned a task for "Awesome new project".</p>
                                             </div>
                                         </div>
                                     </a>
@@ -99,7 +99,7 @@
                                 <div class="media d-flex align-items-center">
                                     <img class="avatar rounded-circle" alt="Image placeholder" src="{{ asset('assets-admin/img/team/profile-picture-3.jpg') }}">
                                     <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                        <span class="mb-0 font-small fw-bold text-gray-900">Bonnie Green</span>
+                                        <span class="mb-0 font-small fw-bold text-gray-900">User</span>
                                     </div>
                                 </div>
                             </a>
