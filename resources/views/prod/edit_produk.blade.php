@@ -28,7 +28,7 @@
         @endif
     </div>
 
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
@@ -146,14 +146,14 @@
                                 </div>
                             </div>
                         </form>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
 
         <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
             <div class="text-center">
-                <p class="mb-0 text-gray-700">© {{ date('Y') }} <a href="https://themesberg.com" target="_blank" class="text-primary">Themesberg</a></p>
+                <p class="mb-0 text-gray-700">© {{ date('Y') }} <a href="https://themesberg.com" target="_blank" class="text-primary">thariq</a></p>
             </div>
         </footer>
     </main>

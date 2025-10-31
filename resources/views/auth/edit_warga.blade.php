@@ -42,7 +42,7 @@
 
 
          <body>
-       
+
     <div class="position-fixed top-0 start-50 translate-middle-x mt-3 z-3" style="width: 90%; max-width: 600px;">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
@@ -58,7 +58,7 @@
         @endif
     </div>
 
-    
+
         <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
             <a class="navbar-brand me-lg-5" href="../../index.html">
                 <img class="navbar-brand-dark" src="{{ asset('assets-admin/img/brand/light.svg') }}" alt="Volt logo" /> <img class="navbar-brand-light" src="{{ asset('') }}assets-admin/img/brand/dark.svg" alt="Volt logo" />
@@ -70,7 +70,7 @@
             </div>
         </nav>
 
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
@@ -128,7 +128,7 @@
 		</li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
-            
+
             </ul>
         </div>
     </nav>
@@ -312,7 +312,7 @@
                                     <!-- Last Name -->
                                     <div class="mb-3">
                                         <label for="last_name" class="form-label">Last name</label>
-                                        <input type="text" id="last_name" name="last_name" class="form-control" 
+                                        <input type="text" id="last_name" name="last_name" class="form-control"
                                         value="{{ $dataWarga->last_name }}"required>
                                     </div>
                                 </div>
@@ -342,7 +342,7 @@
                                     <!-- Email -->
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" id="email" name="email" class="form-control" 
+                                        <input type="text" id="email" name="email" class="form-control"
                                         value="{{ $dataWarga->email }}"required>
                                     </div>
 

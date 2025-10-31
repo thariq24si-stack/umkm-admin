@@ -28,7 +28,7 @@
         @endif
     </div>
 
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
@@ -96,6 +96,12 @@
                                             value="{{ old('name', $dataUser->name) }}" required>
                                     </div>
 
+                                     <div class="mb-3">
+                                        <label for="password" class="form-label">Password User</label>
+                                        <input type="password" id="password" name="password" class="form-control"
+                                            value="{{ old('password', $dataUser->password) }}" required>
+                                    </div>
+
 
                                     <div class="">
                                         <button type="submit" class="btn btn-info">Simpan Perubahan</button>
@@ -104,7 +110,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>

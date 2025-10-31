@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('umkm_id')->references('umkm_id')->on('umkm')->onDelete('cascade');
+     
         });
     }
 

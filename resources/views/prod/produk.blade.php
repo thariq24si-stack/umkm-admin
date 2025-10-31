@@ -29,7 +29,7 @@
     </div>
 
     {{-- SIDEBAR --}}
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <ul class="nav flex-column pt-3">
                 <li class="nav-item">
@@ -129,7 +129,7 @@
                                         <textarea id="deskripsi" name="deskripsi" rows="4" class="form-control"
                                             placeholder="Tuliskan deskripsi produk...">{{ old('deskripsi') }}</textarea>
                                     </div>
-                                     
+
                                     <div class="mb-3">
     <label for="foto" class="form-label">Foto Produk</label>
     <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
@@ -158,7 +158,7 @@
         <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
             <div class="row">
                 <div class="col text-center">
-                    <p class="mb-0 text-gray-600">© {{ date('Y') }} CRUD Produk | Volt Bootstrap Dashboard</p>
+                    <p class="mb-0 text-gray-600">© {{ date('Y') }} CRUD Produk - thariq</p>
                 </div>
             </div>
         </footer>

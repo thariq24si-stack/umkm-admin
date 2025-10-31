@@ -52,7 +52,7 @@
         </div>
     </nav>
 
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
@@ -111,7 +111,7 @@
                 </li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
-              
+
             </ul>
         </div>
     </nav>
@@ -180,7 +180,7 @@
                                                         <small class="text-danger">2 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome new project".</p>
+                                                <p class="font-small mt-1 mb-0">Youve been assigned a task for "Awesome new project".</p>
                                             </div>
                                         </div>
                                     </a>
@@ -264,8 +264,8 @@
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Data Pelanggan</h1>
-                    <p class="mb-0">List data seluruh pelanggan</p>
+                    <h1 class="h4">Data Warga</h1>
+                    <p class="mb-0">List data seluruh Warga</p>
                 </div>
                 <div>
                     <a href="{{ route('home') }}" class="btn btn-success text-white"><i class="far fa-question-circle me-1"></i> Tambah Pelanggan</a>
@@ -331,7 +331,7 @@
         <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
             <div class="row">
                 <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
-                    <p class="mb-0 text-center text-lg-start">© 2019-<span class="current-year"></span> <a class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Themesberg</a></p>
+                    <p class="mb-0 text-center text-lg-start">© 2019-<span class="current-year"></span> <a class="text-primary fw-normal" href="https://themesberg.com" target="_blank">thariq</a></p>
                 </div>
                 <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
                     <!-- List -->

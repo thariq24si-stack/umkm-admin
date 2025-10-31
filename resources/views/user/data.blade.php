@@ -3,13 +3,13 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Data Produk - Dashboard UMKM</title>
+    <title>Data User - Dashboard UMKM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
 </head>
 
 <body>
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item active">
@@ -50,14 +50,14 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">Produk</a></li>
+                    <li class="breadcrumb-item"><a href="#">user</a></li>
                 </ol>
             </nav>
 
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Data Produk</h1>
-                    <p class="mb-0">Daftar seluruh produk UMKM</p>
+                    <h1 class="h4">Data User</h1>
+                    <p class="mb-0">Daftar seluruh User </p>
                 </div>
                 <div>
                     <a href="{{ route('user.create') }}" class="btn btn-success text-white">
@@ -76,7 +76,7 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>Nama User</th>
-                                       
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,7 +84,7 @@
                                         <tr>
                                             <td>{{ $user->name}}</td>
                                               <td>{{ $user->email}}</td>
-                                           
+
                                             <td>
                                                 <a href="{{ route('user.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a>
                                                 <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display:inline">

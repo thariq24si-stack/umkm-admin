@@ -9,7 +9,7 @@
             </div>
         </nav>
 
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
@@ -38,7 +38,7 @@
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link d-flex align-items-center">
-                      
+
                         <span class="mt-1 ms-1 sidebar-text">Form pengisian data</span>
                     </a>
                 </li>
