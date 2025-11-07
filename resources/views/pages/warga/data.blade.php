@@ -322,7 +322,7 @@
                 </div>
                 <div>
                     <a href="{{ route('home') }}" class="btn btn-success text-white"><i
-                            class="far fa-question-circle me-1"></i> Tambah Pelanggan</a>
+                            class="far fa-question-circle me-1"></i> + Tambah Pelanggan</a>
                 </div>
             </div>
         </div>
@@ -397,8 +397,6 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
-
                                 </tbody>
                             </table>
                         </div>

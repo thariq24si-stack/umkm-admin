@@ -135,7 +135,7 @@
 
     <main class="content">
 
-        <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+        {{--  <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
             <div class="container-fluid px-0">
 
                 <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
@@ -154,7 +154,7 @@
                         <!-- / Search form -->
                     </div>
                     <!-- Navbar links -->
-                    <ul class="navbar-nav align-items-center">
+                    {{--  <ul class="navbar-nav align-items-center">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark notification-bell unread dropdown-toggle" data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <svg class="icon icon-sm text-gray-900" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -198,7 +198,7 @@
                                                         <small class="text-danger">2 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome new project".</p>
+                                                <p class="font-small mt-1 mb-0">Youve been assigned a task for "Awesome new project".</p>
                                             </div>
                                         </div>
                                     </a>
@@ -262,10 +262,10 @@
                                 </a>
                             </div>
                         </li>
-                    </ul>
-                </div>
+                    </ul>  --}}
+                {{--  </div>
             </div>
-        </nav>
+        </nav>  --}}  
 
         <div class="py-4">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">

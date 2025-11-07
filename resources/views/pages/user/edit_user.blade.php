@@ -117,7 +117,7 @@
 
         <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
             <div class="text-center">
-                <p class="mb-0 text-gray-700">© {{ date('Y') }} <a href="https://themesberg.com" target="_blank" class="text-primary">Themesberg</a></p>
+                <p class="mb-0 text-gray-700">© {{ date('Y') }} <a href="https://themesberg.com" target="_blank" class="text-primary">Thariq</a></p>
             </div>
         </footer>
     </main>

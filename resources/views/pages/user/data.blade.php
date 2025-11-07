@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <a href="{{ route('user.create') }}" class="btn btn-success text-white">
-                        Tambah user
+                        + Tambah user
                     </a>
                 </div>
             </div>
