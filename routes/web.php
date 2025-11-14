@@ -66,3 +66,4 @@ Route::resource('user', UserController::class);
 
 Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

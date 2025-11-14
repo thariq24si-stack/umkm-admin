@@ -95,7 +95,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('auth.login') }}" method="POST">
+                <form action="{{ route(name: 'auth.login') }}" method="POST">
                     @csrf
 
                     <!-- Email -->
