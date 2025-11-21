@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Warga;
@@ -14,9 +13,11 @@ class WargaController extends Controller
     {
         $filterableColumns = ['gender'];
 
-		$data['dataWarga'] = Warga::filter($request, $filterableColumns)->paginate(10)->onEachSide(2) ;
+        $searchableColumns = ['first_name','last_name','email'];
 
-		return view('pages.warga.data',$data);
+        $data['dataWarga'] = Warga::filter($request, $filterableColumns)->search($request, $searchableColumns)->paginate(10)->onEachSide(2)->withQueryString();
+
+        return view('pages.warga.data', $data);
 
     }
 
@@ -25,7 +26,7 @@ class WargaController extends Controller
      */
     public function create()
     {
-		return view('auth.home');
+        return view('auth.home');
     }
 
     /**
@@ -34,15 +35,15 @@ class WargaController extends Controller
     public function store(Request $request)
     {
         $data['first_name'] = $request->first_name;
-		$data['last_name'] = $request->last_name;
-		$data['birthday'] = $request->birthday;
-		$data['gender'] = $request->gender;
-		$data['email'] = $request->email;
-		$data['phone'] = $request->phone;
+        $data['last_name']  = $request->last_name;
+        $data['birthday']   = $request->birthday;
+        $data['gender']     = $request->gender;
+        $data['email']      = $request->email;
+        $data['phone']      = $request->phone;
 
-		Warga::create($data);
+        Warga::create($data);
 
-		return redirect()->route('home')->with('success','Penambahan Data Berhasil!');
+        return redirect()->route('home')->with('success', 'Penambahan Data Berhasil!');
     }
 
     /**
@@ -59,8 +60,8 @@ class WargaController extends Controller
     public function edit(string $id)
     {
 
-    $data['dataWarga'] = Warga::findOrFail($id);
-    return view('pages.warga.edit_warga', $data);
+        $data['dataWarga'] = Warga::findOrFail($id);
+        return view('pages.warga.edit_warga', $data);
 
     }
 
@@ -70,11 +71,10 @@ class WargaController extends Controller
     public function update(Request $request, string $id)
     {
 
-    $warga = Warga::findOrFail($id);
-    $warga->update($request->all());
+        $warga = Warga::findOrFail($id);
+        $warga->update($request->all());
 
-    return redirect()->route('warga.index')->with('success', 'Data berhasil diperbarui!');
-
+        return redirect()->route('warga.index')->with('success', 'Data berhasil diperbarui!');
 
     }
 
@@ -87,7 +87,6 @@ class WargaController extends Controller
 
         $warga->delete();
         return redirect()->route('warga.index')->with('success', 'Data berhasil dihapus!');
-
 
     }
 }
