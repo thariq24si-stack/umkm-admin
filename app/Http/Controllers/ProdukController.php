@@ -10,9 +10,17 @@ class ProdukController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
+
     {
-        $data['dataProduk'] = Produk::all();
+        // dd($request->all());
+
+        $filterableColumns = ['status'];
+
+        $searchableColumns = ['nama_produk'];
+
+
+        $data['dataProduk'] = Produk::filter($request, $filterableColumns)->search($request, $searchableColumns)->paginate(10)->onEachSide(2)->withQueryString();
         return view('pages.prod.data', $data);
     }
 

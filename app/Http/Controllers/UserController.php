@@ -11,9 +11,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-           $data['dataUser'] = User::all();
+
+        $filterableColumns = ['name'];
+
+        $searchableColumns = ['name','email'];
+
+        $data['dataUser'] = User::filter($request, $filterableColumns)->search($request, $searchableColumns)->paginate(10)->onEachSide(2)->withQueryString();
+
         return view('pages.user.data', $data);
 
     }

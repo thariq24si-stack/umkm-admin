@@ -28,7 +28,7 @@ class WargaProduk extends Seeder
         }
 
         
-        for ($i=0; $i<10; $i++) {
+        for ($i=10; $i<110; $i++) {
             DB::table('produk')->insert([
                 'nama_produk' => $faker->word(),
                 'deskripsi'   => $faker->sentence(),

@@ -71,6 +71,9 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th class="border-0">
+                                        <span class="badge bg-secondary">No</span>
+                                    </th>
+                                    <th class="border-0">
                                         <span class="badge bg-secondary">First Name</span>
                                     </th>
                                     <th class="border-0">
