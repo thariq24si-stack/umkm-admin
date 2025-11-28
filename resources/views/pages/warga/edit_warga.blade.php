@@ -297,70 +297,95 @@
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
                        {{-- <p>Action URL: {{ route('warga.update', $dataWarga->warga_id) }}</p> --}}
-                        <form action="{{ route('warga.update', $dataWarga->warga_id) }}" method="POST">
-                            @csrf
-                               @method('PUT')
-                            <div class="row mb-4">
-                                <div class="col-lg-4 col-sm-6">
-                                    <!-- First Name -->
-                                    <div class="mb-3">
-                                        <label for="first_name" class="form-label">First name</label>
-                                        <input type="text" id="first_name" name="first_name"class="form-control"
-                                        value="{{ old('first_name',$dataWarga->first_name) }}" required>
-                                    </div>
+            <form action="{{ route('warga.update', $dataWarga->warga_id) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
 
-                                    <!-- Last Name -->
-                                    <div class="mb-3">
-                                        <label for="last_name" class="form-label">Last name</label>
-                                        <input type="text" id="last_name" name="last_name" class="form-control"
-                                        value="{{ $dataWarga->last_name }}"required>
-                                    </div>
-                                </div>
+    <div class="row mb-4">
+        <div class="col-lg-4 col-sm-6">
+            <!-- First Name -->
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First name</label>
+                <input type="text" id="first_name" name="first_name" class="form-control"
+                value="{{ old('first_name', $dataWarga->first_name) }}" required>
+            </div>
 
-                                <div class="col-lg-4 col-sm-6">
-                                    <!-- Birthday -->
-                                    <div class="mb-3">
-                                        <label for="birthday" class="form-label">Birthday</label>
-                                        <input type="date" id="birthday" name="birthday"class="form-control"
-                                        value="{{ $dataWarga->birthday }}">
-                                    </div>
+            <!-- Last Name -->
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last name</label>
+                <input type="text" id="last_name" name="last_name" class="form-control"
+                value="{{ old('last_name', $dataWarga->last_name) }}" required>
+            </div>
+        </div>
 
-                                    <!-- Gender -->
-                                    <div class="mb-3">
-                                     <label for="gender" class="form-label">Gender</label>
-                                     <select id="gender" name="gender" class="form-select">
-                                    <option value="">-- Pilih --</option>
-                                    <option value="Female" {{ $dataWarga->gender == 'Female' ? 'selected' : '' }}>Female</option>
-                                    <option value="Male" {{ $dataWarga->gender == 'Male' ? 'selected' : '' }}>Male</option>
-                                    <option value="Other" {{ $dataWarga->gender == 'Other' ? 'selected' : '' }}>Other</option>
-                                </select>
-                                </div>
+        <div class="col-lg-4 col-sm-6">
+            <!-- Birthday -->
+            <div class="mb-3">
+                <label for="birthday" class="form-label">Birthday</label>
+                <input type="date" id="birthday" name="birthday" class="form-control"
+                value="{{ old('birthday', $dataWarga->birthday) }}">
+            </div>
 
-                                </div>
+            <!-- Gender -->
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select id="gender" name="gender" class="form-select">
+                    <option value="">-- Pilih --</option>
+                    <option value="Female" {{ $dataWarga->gender == 'Female' ? 'selected' : '' }}>Female</option>
+                    <option value="Male" {{ $dataWarga->gender == 'Male' ? 'selected' : '' }}>Male</option>
+                    <option value="Other" {{ $dataWarga->gender == 'Other' ? 'selected' : '' }}>Other</option>
+                </select>
+            </div>
+        </div>
 
-                                <div class="col-lg-4 col-sm-12">
-                                    <!-- Email -->
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="text" id="email" name="email" class="form-control"
-                                        value="{{ $dataWarga->email }}"required>
-                                    </div>
+        <div class="col-lg-4 col-sm-12">
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" id="email" name="email" class="form-control"
+                value="{{ old('email', $dataWarga->email) }}" required>
+            </div>
 
-                                    <!-- Phone -->
-                                    <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" id="phone" name="phone"class="form-control"
-                                        value="{{ $dataWarga->phone }}">
-                                    </div>
+            <!-- Phone -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" id="phone" name="phone" class="form-control"
+                value="{{ old('phone', $dataWarga->phone) }}">
+            </div>
 
-                                    <!-- Buttons -->
-                                    <div class="">
-                                        <button type="submit" class="btn btn-info">Simpan Perubahan</button>
-                                        <a href="{{ route('warga.index') }}" class="btn btn-outline-secondary ms-2">Batal</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+            <!-- File Upload -->
+            <div class="mb-3">
+                <label for="files" class="form-label">Upload Files</label>
+                <input type="file" name="files[]" class="form-control" multiple>
+            </div>
+
+            @if($dataWarga->files && count($dataWarga->files) > 0)
+            <div class="mb-3">
+                <label class="form-label">Existing Files</label>
+                <ul class="list-group">
+                    @foreach($dataWarga->files as $file)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="{{ asset('storage/'.$file->filename) }}" target="_blank">{{ $file->filename }}</a>
+                            <form action="{{ route('warga.file.delete', $file->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+            <!-- Buttons -->
+            <div class="">
+                <button type="submit" class="btn btn-info">Simpan Perubahan</button>
+                <a href="{{ route('warga.index') }}" class="btn btn-outline-secondary ms-2">Batal</a>
+            </div>
+        </div>
+    </div>
+</form>
+
                     </div>
 
                 </div>

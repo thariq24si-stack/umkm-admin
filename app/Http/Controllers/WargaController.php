@@ -58,25 +58,35 @@ class WargaController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
+{
+    // Ambil data warga
+    $data['dataWarga'] = Warga::with('files')->findOrFail($id); // ambil relasi files juga
+    return view('pages.warga.edit_warga', $data);
+}
 
-        $data['dataWarga'] = Warga::findOrFail($id);
-        return view('pages.warga.edit_warga', $data);
+/**
+ * Update the specified resource in storage.
+ */
+public function update(Request $request, string $id)
+{
+    $warga = Warga::findOrFail($id);
 
+    // Update data utama warga
+    $warga->update($request->except('files')); // jangan ikutkan files di mass assign
+
+    // Handle multiple file upload
+    if ($request->hasFile('files')) {
+        foreach ($request->file('files') as $file) {
+            $filename = $file->store('warga_files', 'public'); // simpan di storage/app/public/warga_files
+            $warga->files()->create([
+                'filename' => $filename
+            ]);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
+    return redirect()->route('warga.index')->with('success', 'Data berhasil diperbarui!');
+}
 
-        $warga = Warga::findOrFail($id);
-        $warga->update($request->all());
-
-        return redirect()->route('warga.index')->with('success', 'Data berhasil diperbarui!');
-
-    }
 
     /**
      * Remove the specified resource from storage.

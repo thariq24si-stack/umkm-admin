@@ -102,6 +102,15 @@
                                             value="{{ old('password', $dataUser->password) }}" required>
                                     </div>
 
+            <div class="mb-3">
+                <label for="profile_picture" class="form-label">Foto Profil</label>
+                <input type="file" id="profile_picture" name="profile_picture" class="form-control">
+
+                @if($dataUser->profile_picture)
+                    <img src="{{ asset('uploads/' . $dataUser->profile_picture) }}" width="100" class="mt-2 rounded-circle">
+                @endif
+            </div>
+
 
                                     <div class="">
                                         <button type="submit" class="btn btn-info">Simpan Perubahan</button>

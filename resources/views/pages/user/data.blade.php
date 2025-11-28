@@ -64,14 +64,24 @@
                                         <th class="border-0"><span class="badge bg-primary">Nama</span></th>
                                         <th class="border-0"><span class="badge bg-info">Email</span></th>
                                         <th class="border-0"><span class="badge bg-danger">Aksi</span></th>
+                                        <th class="border-0"><span class="badge bg-primary">Foto</span></th>
+
 
                                     </tr>   
                                 </thead>
                                 <tbody>
+                                    <td>
                                     @foreach ($dataUser as $user)
                                         <tr>
                                         <td>{{ ($dataUser->currentPage() - 1) * $dataUser->perPage() + $loop->iteration }}
-                                        </td>                                            
+                                        </td>                      
+                                                                   <td>
+    @if($user->profile_picture)
+        <img src="{{ asset('uploads/' . $user->profile_picture) }}" width="35"  width="35"class="rounded-circle">
+    @else
+        <img src="{{ asset('default.jpg') }}" width="50" class="rounded-circle">
+    @endif
+</td>                      
                                         <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
 

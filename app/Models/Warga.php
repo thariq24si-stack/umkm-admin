@@ -37,4 +37,10 @@ public function scopeSearch($query, $request, array $columns)
         });
     }
 }
+public function files()
+{
+    return $this->hasMany(WargaFile::class, 'warga_id', 'warga_id');
+}
+
+
 }
