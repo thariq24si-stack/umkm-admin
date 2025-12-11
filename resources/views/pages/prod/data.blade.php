@@ -87,11 +87,12 @@
                                             </td>
                                             <td>{{ $item->umkm_id }}</td>
                                             <td>
-                                                @if ($item->foto)
-                                                    <img src="{{ asset($item->foto) }}" width="50" class="rounded">
-                                                @else
+                                                @if($item->foto)
+        <img src="{{ asset('uploads/' . $item->foto) }}" width="35"  width="35"class="rounded-circle">
+    
+@else
                                                     <small class="text-muted">Tidak ada</small>
-                                                @endif
+                                                @endif   
                                             </td>
                                             <td>
                                                 <a href="{{ route('produk.edit', $item->produk_id) }}"

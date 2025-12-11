@@ -89,11 +89,11 @@
 
                             <div class="row mb-4">
                                 <div class="col-lg-4 col-sm-6">
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="umkm_id" class="form-label">UMKM ID</label>
                                         <input type="number" id="umkm_id" name="umkm_id" class="form-control"
                                             value="{{ old('umkm_id', $dataProduk->umkm_id) }}" required>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="mb-3">
                                         <label for="nama_produk" class="form-label">Nama Produk</label>
@@ -123,7 +123,7 @@
 
                                     <div class="mb-3">
                                         <label for="foto" class="form-label">Foto Produk</label>
-                                        <input type="file" id="foto" name="foto" class="form-control">
+                                        <input type="file" id="foto" name="foto[]" class="form-control" multiple>
                                         @if($dataProduk->foto)
                                             <div class="mt-2">
                                                 <p class="mb-1">Foto Saat Ini:</p>
@@ -138,6 +138,25 @@
                                         <label for="deskripsi" class="form-label">Deskripsi</label>
                                         <textarea id="deskripsi" name="deskripsi" class="form-control" rows="6">{{ old('deskripsi', $dataProduk->deskripsi) }}</textarea>
                                     </div>
+
+                                    
+@if($produk->media->count() > 0)
+    <ul class="list-group">
+        @foreach($produk->media as $file)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{{ asset('storage/' . $file->file_name) }}" target="_blank">{{ $file->file_name }}</a>
+                
+                <form action="{{ route('media.destroy', $file->media_id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                </form>
+            </li>
+        @endforeach
+    </ul>
+@else
+    <p>No files available for this product.</p>
+@endif
 
                                     <div class="">
                                         <button type="submit" class="btn btn-info">Simpan Perubahan</button>

@@ -13,6 +13,12 @@ protected $primaryKey = 'produk_id';
 protected $fillable = [
     'umkm_id', 'nama_produk', 'deskripsi', 'harga', 'stok', 'status', 'foto'
 ];
+
+ public function media()
+    {
+        return $this->morphMany(Media::class, 'mediaable', 'ref_table', 'ref_id');
+    }
+    
 public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
 {
     foreach ($filterableColumns as $column) {

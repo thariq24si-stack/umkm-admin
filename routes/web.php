@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\WargaController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\WargaFileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -67,3 +68,6 @@ Route::resource('user', UserController::class);
 Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::delete('warga-files/{wargaFile}', [WargaFileController::class, 'destroy'])->name('warga-files.destroy');
+

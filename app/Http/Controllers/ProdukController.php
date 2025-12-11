@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class ProdukController extends Controller
     public function index(Request $request)
 
     {
-        // dd($request->all());
+        dd($request->all());
 
         $filterableColumns = ['status'];
 
@@ -36,18 +37,24 @@ class ProdukController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $data['nama_produk'] = $request->nama_produk;
-        $data['kategori'] = $request->kategori;
-        $data['harga'] = $request->harga;
-        $data['stok'] = $request->stok;
-        $data['deskripsi'] = $request->deskripsi;
-        $data['umkm_id'] = $request->umkm_id;
 
+{
+    // Validasi input
+    $request->validate([
+        'nama_produk' => 'required|string',
+        'kategori' => 'required|string',
+        'harga' => 'required|numeric',
+        'stok' => 'required|numeric',
+        'deskripsi' => 'nullable|string',
+        'umkm_id' => 'required|numeric',
+        'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
+        'files.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,docx|max:2048', 
+    ]);
 
+    // Ambil data produk
+    $data = $request->except('foto', 'files');
 
-    $data = $request->except('foto');
-
+    // Upload foto utama produk (gambar produk)
     if ($request->hasFile('foto')) {
         $file = $request->file('foto');
         $filename = time() . '_' . $file->getClientOriginalName();
@@ -55,28 +62,26 @@ class ProdukController extends Controller
         $data['foto'] = 'uploads/produk/' . $filename;
     }
 
-        Produk::create($data);
+    $produk = Produk::create($data);
 
-        return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan!');
+    if ($request->hasFile('files')) {
+        foreach ($request->file('files') as $file) {
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/produk'), $filename);
+
+            Media::create([
+                'ref_table' => 'produk', 
+                'ref_id' => $produk->id, 
+                'file_name' => 'uploads/produk/' . $filename,
+                'mime_type' => $file->getClientMimeType(),
+                'caption' => 'File terkait produk ' . $produk->nama_produk,
+                'sort_order' => 0, 
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $data['produk'] = Produk::findOrFail($id);
-        return view('prod.show', $data);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $data['dataProduk'] = Produk::findOrFail($id);
-        return view('pages.prod.edit_produk', $data);
-    }
+    return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan!');
+}
 
     /**
      * Update the specified resource in storage.
@@ -99,4 +104,12 @@ class ProdukController extends Controller
 
         return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus!');
     }
+    public function edit(string $id)
+{
+     $produk = Produk::with('Media')->findOrFail($id);
+
+    return view('produk.edit', compact('produk'));
 }
+}
+
+

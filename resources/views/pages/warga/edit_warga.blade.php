@@ -366,7 +366,7 @@
                     @foreach($dataWarga->files as $file)
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <a href="{{ asset('storage/'.$file->filename) }}" target="_blank">{{ $file->filename }}</a>
-                            <form action="{{ route('warga.file.delete', $file->id) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('warga.file.destroy', $file->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
