@@ -14,7 +14,7 @@ class ProdukController extends Controller
     public function index(Request $request)
 
     {
-        dd($request->all());
+        // dd($request->all());
 
         $filterableColumns = ['status'];
 
@@ -47,8 +47,8 @@ class ProdukController extends Controller
         'stok' => 'required|numeric',
         'deskripsi' => 'nullable|string',
         'umkm_id' => 'required|numeric',
-        'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048', 
-        'files.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,docx|max:2048', 
+        'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'files.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,docx|max:2048',
     ]);
 
     // Ambil data produk
@@ -70,12 +70,12 @@ class ProdukController extends Controller
             $file->move(public_path('uploads/produk'), $filename);
 
             Media::create([
-                'ref_table' => 'produk', 
-                'ref_id' => $produk->id, 
+                'ref_table' => 'produk',
+                'ref_id' => $produk->id,
                 'file_name' => 'uploads/produk/' . $filename,
                 'mime_type' => $file->getClientMimeType(),
                 'caption' => 'File terkait produk ' . $produk->nama_produk,
-                'sort_order' => 0, 
+                'sort_order' => 0,
             ]);
         }
     }
