@@ -140,7 +140,11 @@
                                     </div>
 
                                     
+<<<<<<< HEAD
 @if($produk->media->count() > 0)
+=======
+@if($dataProduk->media->count() > 0)
+>>>>>>> 7e56921 (pas di rumah syabil)
     <ul class="list-group">
         @foreach($produk->media as $file)
             <li class="list-group-item d-flex justify-content-between align-items-center">
