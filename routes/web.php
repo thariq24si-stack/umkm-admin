@@ -71,3 +71,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::delete('warga-files/{wargaFile}', [WargaFileController::class, 'destroy'])->name('warga-files.destroy');
 
+Route::get('/developer-profile', function () {
+    return view('pages.auth.dev'); 
+})->name('developer.profile');

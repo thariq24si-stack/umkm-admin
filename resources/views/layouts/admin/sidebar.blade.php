@@ -51,18 +51,15 @@
         <!-- Navigation Menu -->
         <ul class="nav flex-column pt-3 pt-md-0">
             <!-- Brand/Logo Section -->
-            <li class="nav-item mb-3">
-                <a href="../../index.html" class="nav-link d-flex align-items-center py-3">
-                    <span class="sidebar-icon me-3">
-                        <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.306-.613-.933-1-1.618-1H7.618c-.685 0-1.312.387-1.618 1M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-                        </svg>
-                    </span>
-                    <span class="sidebar-text fw-bold">UMKM BINA DESA</span>
-                </a>
-            </li>
+     <li class="nav-item mb-3">
+    <a href="/" class="nav-link d-flex align-items-center justify-content-center py-4">
+        <div class="sidebar-icon w-100 d-flex justify-content-center">
+            <img src="{{ asset('assets-admin/img/logo-umkm.png') }}" 
+                 alt="Logo UMKM" 
+                 style="width: 200px; height: auto; object-fit: contain;">
+        </div>
+    </a>
+</li>
 
             <li role="separator" class="dropdown-divider my-3 border-gray-700"></li>
 

@@ -106,9 +106,9 @@ class ProdukController extends Controller
     }
     public function edit(string $id)
 {
-     $produk = Produk::with('Media')->findOrFail($id);
+     $dataProduk = Produk::with('Media')->findOrFail($id);
 
-    return view('produk.edit', compact('produk'));
+    return view('pages.prod.edit_produk', compact('dataProduk'));
 }
 }
 

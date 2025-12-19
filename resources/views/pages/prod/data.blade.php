@@ -29,112 +29,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-        <div class="row">
-            <div class="col-12 mb-4">
-                <div class="card border-0 shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <form method="GET" action="{{ route('produk.index') }}"  class="mb-3">
-          <div class="row">
-              <div class="col-md-2">
-                  <select name="status" class="form-select" onchange="this.form.submit()">
-                      <option value="">All</option>
-                      <option value="Tersedia" {{ request('status')=='Tersedia' ? 'selected' : '' }}>Tersedia</option>
-                      <option value="Habis" {{ request('status')=='Habis' ? 'selected' : '' }}>Habis</option>
-                  </select>
-              </div>
-              <div class="col-md-3">
-    <div class="input-group">
-        <input type="text" name="search" class="form-control" id="exampleInputIconRight" value="{{request('search')}}" placeholder="Search" aria-label="Search">
-        <button type="submit" class="input-group-text" id="basic-addon2">
-        <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
-        </button>
-        @if(request('search'))
-							<a href="{{ request()->fullUrlWithQuery(['search'=> null]) }}" class="btn btn-outline-secondary ml-3" id="clear-search"> Clear</a>
-					@endif
-    </div>
-</div>
-          </div>
-      </form>
-                            <table class="table table-centered table-nowrap mb-0 rounded">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th class="border-0"><span class="badge bg-primary">No</span></th>
-                                        <th><span class="badge bg-primary">Nama Produk</span></th>
-                                        <th><span class="badge bg-info">Deskripsi</span></th>
-                                        <th><span class="badge bg-success">Harga</span></th>
-                                        <th><span class="badge bg-warning text-dark">Stok</span></th>
-                                        <th><span class="badge bg-secondary">Status</span></th>
-                                        <th><span class="badge bg-primary">UMKM ID</span></th>
-                                        <th><span class="badge bg-info">Foto</span></th>
-                                        <th><span class="badge bg-danger">Aksi</span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($dataProduk as $item)
-                                        <tr>
-                                            <td>{{ ($dataProduk->currentPage() - 1) * $dataProduk->perPage() + $loop->iteration }}
-                                        </td>
-                                            <td>{{ $item->nama_produk }}</td>
-                                            <td>{{ $item->deskripsi }}</td>
-                                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                                            <td>{{ $item->stok }}</td>
-                                            <td>
-                                                <span
-                                                    class="badge bg-{{ $item->status == 'Tersedia' ? 'success' : 'danger' }}">
-                                                    {{ $item->status }}
-                                                </span>
-                                            </td>
-                                            <td>{{ $item->umkm_id }}</td>
-                                            <td>
-                                                @if($item->foto)
-        <img src="{{ asset('uploads/' . $item->foto) }}" width="35"  width="35"class="rounded-circle">
-    
-@else
-                                                    <small class="text-muted">Tidak ada</small>
-                                                @endif   
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('produk.edit', $item->produk_id) }}"
-                                                    class="btn btn-info btn-sm">Edit<svg
-                                                        class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        fill="none" viewBox="0 0 24 24">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2"
-                                                            d="M5 11.917 9.724 16.5 19 7.5" />
-                                                    </svg></a>
-                                                <form action="{{ route('produk.destroy', $item->produk_id) }}"
-                                                    method="POST" style="display:inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">Hapus<svg
-                                                            class="w-6 h-6 text-white  dark:text-white"
-                                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                            width="24" height="24" fill="none"
-                                                            viewBox="0 0 24 24">
-                                                            <path stroke="currentColor" stroke-linecap="round"
-                                                                stroke-width="2"
-                                                                d="m6 6 12 12m3-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                        </svg>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                             
-     <div class="mt-3">
-        {{ $dataProduk->links('pagination::bootstrap-5') }}
-    </div>
-
-                            @if ($dataProduk->isEmpty())
-                                <p class="text-center mt-3 text-muted">Belum ada data produk.</p>
-                            @endif
-                        </div>
-=======
     <div class="row">
         <div class="col-12 mb-4">
             <div class="card border-0 shadow mb-4">
@@ -178,75 +72,95 @@
                                     <th><span class="badge bg-danger">Aksi</span></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach ($dataProduk as $item)
-                                <tr>
-                                    {{-- No --}}
-                                    <td>{{ ($dataProduk->currentPage() - 1) * $dataProduk->perPage() + $loop->iteration }}</td>
+<tbody>
+    @foreach ($dataProduk as $item)
+    <tr>
+        {{-- No --}}
+        <td>{{ ($dataProduk->currentPage() - 1) * $dataProduk->perPage() + $loop->iteration }}</td>
 
-                                    {{-- Nama Produk --}}
-                                    <td>{{ $item->nama_produk }}</td>
+        {{-- Nama Produk --}}
+        <td class="fw-bold text-dark">{{ $item->nama_produk }}</td>
 
-                                    {{-- Deskripsi --}}
-                                    <td>{{ Str::limit($item->deskripsi, 30) }}</td>
+        {{-- Deskripsi --}}
+        <td>{{ Str::limit($item->deskripsi, 30) }}</td>
 
-                                    {{-- Harga --}}
-                                    <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+        {{-- Harga --}}
+        <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
 
-                                    {{-- Stok --}}
-                                    <td>{{ $item->stok }}</td>
+        {{-- Stok --}}
+        <td>{{ $item->stok }}</td>
 
-                                    {{-- Status --}}
-                                    <td>
-                                        <span class="badge bg-{{ $item->status == 'Tersedia' ? 'success' : 'danger' }}">
-                                            {{ $item->status }}
-                                        </span>
-                                    </td>
+        {{-- Status --}}
+        <td>
+            <span class="badge bg-{{ $item->status == 'Tersedia' ? 'success' : 'danger' }}">
+                {{ $item->status }}
+            </span>
+        </td>
 
-                                    {{-- UMKM ID --}}
-                                    <td>{{ $item->umkm_id }}</td>
+        {{-- UMKM ID --}}
+        <td>{{ $item->umkm_id ?? '-' }}</td>
 
-                                    {{-- FOTO (Hanya satu kolom yang rapi) --}}
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            @if($item->foto)
-                                            @php
-                                            $urlFoto = str_contains($item->foto, 'uploads')
-                                            ? asset($item->foto)
-                                            : asset('assets-admin/img/produk/' . $item->foto);
-                                            @endphp
-                                            <img src="{{ $urlFoto }}" width="40" height="40" class="rounded-circle border shadow-sm" style="object-fit: cover;" alt="Foto Produk">
-                                            @else
-                                            {{-- Placeholder otomatis dengan inisial nama --}}
-                                            <img src="https://ui-avatars.com/api/?name={{ urlencode($item->nama_produk) }}&background=f0f2f5&color=6c757d&size=128"
-                                                width="40" height="40" class="rounded-circle border" alt="No Image">
-                                            @endif
-                                        </div>
-                                    </td>
+        {{-- FOTO (Sudah Diperbaiki) --}}
+<td>
+    <div class="d-flex align-items-center">
+        @php
+            // 1. Cek apakah ada data di kolom 'gambar'
+            if (!empty($item->gambar)) {
+                // 2. Cek apakah ini gambar dari seeder (ada kata 'assets-admin') atau upload (biasanya dari folder 'uploads' atau 'storage')
+                if (str_contains($item->gambar, 'assets-admin')) {
+                    $finalUrl = asset($item->gambar);
+                } else {
+                    // Jika kamu menyimpan hasil upload di folder public/uploads/produk/
+                    $finalUrl = asset('uploads/produk/' . $item->gambar); 
+                    
+                    // Jika kamu menggunakan storage:link, gunakan baris di bawah ini:
+                    // $finalUrl = asset('storage/' . $item->gambar);
+                }
+            } else {
+                $finalUrl = null;
+            }
+        @endphp
 
-                                    {{-- AKSI --}}
-                                    <td>
-                                        {{-- Edit --}}
-                                        <a href="{{ route('produk.edit', $item->produk_id) }}" class="btn btn-info btn-sm text-white">
-                                            <svg class="icon icon-xs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                                            </svg>
-                                        </a>
+        @if($finalUrl)
+            <img src="{{ $finalUrl }}" 
+                 width="45" height="45" 
+                 class="rounded-circle border shadow-sm" 
+                 style="object-fit: cover;" 
+                 alt="Foto Produk"
+                 onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name={{ urlencode($item->nama_produk) }}&background=f0f2f5&color=6c757d';">
+        @else
+            {{-- Tampilan jika data gambar di database kosong (Placeholder Inisial) --}}
+            <img src="https://ui-avatars.com/api/?name={{ urlencode($item->nama_produk) }}&background=f0f2f5&color=6c757d&size=128"
+                 width="45" height="45" 
+                 class="rounded-circle border" 
+                 alt="No Image">
+        @endif
+    </div>
+</td>
 
-                                        {{-- Hapus --}}
-                                        <form action="{{ route('produk.destroy', $item->produk_id) }}" method="POST" style="display:inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">
-                                                <svg class="icon icon-xs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                </svg>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
+        {{-- AKSI --}}
+        <td>
+            <div class="btn-group">
+                <a href="{{ route('produk.edit', $item->produk_id) }}" class="btn btn-info btn-sm text-white me-1">
+                    <svg class="icon icon-xs" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                </a>
+
+                <form action="{{ route('produk.destroy', $item->produk_id) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">
+                        <svg class="icon icon-xs" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </td>
+    </tr>
+    @endforeach
+</tbody>
                         </table>
 
                         <div class="mt-3">
@@ -256,15 +170,9 @@
                         @if ($dataProduk->isEmpty())
                         <p class="text-center mt-3 text-muted">Belum ada data produk.</p>
                         @endif
->>>>>>> 7e56921 (pas di rumah syabil)
                     </div>
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-@endsection
-
-=======
     </div>
     @endsection
->>>>>>> 7e56921 (pas di rumah syabil)

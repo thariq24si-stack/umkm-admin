@@ -87,11 +87,7 @@
 
                                             <td>
                                                 <a href="{{ route('user.edit', $user->id) }}"
-<<<<<<< HEAD
-                                                    class="btn btn-info btn-sm">Edit
-=======
                                                     class="btn btn-info btn-sm">
->>>>>>> 7e56921 (pas di rumah syabil)
                                                     <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true"
                                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         fill="none" viewBox="0 0 24 24">
@@ -104,11 +100,7 @@
                                                     style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
-<<<<<<< HEAD
-                                                    <button type="submit" class="btn btn-danger btn-sm">Hapus
-=======
                                                     <button type="submit" class="btn btn-danger btn-sm">
->>>>>>> 7e56921 (pas di rumah syabil)
                                                         <svg class="w-6 h-6 text-white dark:text-white"
                                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                                             width="24" height="24" fill="none"
