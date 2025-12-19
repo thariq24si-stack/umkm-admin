@@ -52,12 +52,12 @@
         <ul class="nav flex-column pt-3 pt-md-0">
             <!-- Brand/Logo Section -->
      <li class="nav-item mb-3">
-    <a href="/" class="nav-link d-flex align-items-center justify-content-center py-4">
-        <div class="sidebar-icon w-100 d-flex justify-content-center">
+    <a href="/" class="nav-link d-flex align-items-center justify-content-center py-3">
+        <span class="sidebar-icon">
             <img src="{{ asset('assets-admin/img/logo-umkm.png') }}" 
                  alt="Logo UMKM" 
-                 style="width: 200px; height: auto; object-fit: contain;">
-        </div>
+                 style="width: 150px; height: auto; max-height: 60px; object-fit: contain;">
+        </span>
     </a>
 </li>
 
@@ -140,92 +140,63 @@
 </nav>
 
 <style>
-/* Sidebar Styling */
+
+
+/* Sidebar Utama dengan Gradasi lebih kuat */
 .sidebar {
     width: 260px;
     min-height: 100vh;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    /* Campuran Hitam Deep dengan sedikit hint Emas */
+    background: linear-gradient(180deg, #1a1a1a 0%, #121212 70%, #1a1a1a 100%) !important;
+    /* Border kanan dibuat lebih menyala kuningnya */
+    border-right: 2px solid rgba(212, 160, 23, 0.4); 
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
+/* Efek Gradasi Kuning Emas di Bagian Bawah (Dibuat Lebih Pekat) */
+.sidebar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Lebih tinggi agar gradasinya nampak */
+    /* Warna d4a017 dengan opacity lebih tinggi (0.3) */
+    background: linear-gradient(to top, rgba(212, 160, 23, 0.3) 0%, rgba(212, 160, 23, 0.1) 40%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Memastikan Menu di atas Gradasi agar tetap jelas */
 .sidebar-inner {
     position: relative;
+    z-index: 2; 
 }
 
-/* Navigation Links */
+/* Nav Link - Hover dibuat lebih menyala */
 .nav-link {
-    color: #b8b8b8 !important;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    transition: all 0.3s ease;
-    padding: 10px 12px !important;
+    color: #e0e0e0 !important;
+    transition: 0.3s;
 }
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff !important;
-    transform: translateX(4px);
+.nav-link:hover, .nav-link.active {
+    background: rgba(212, 160, 23, 0.2) !important;
+    color: #ffd700 !important; /* Kuning murni agar kontras */
+    border-left: 4px solid #d4a017;
+    /* Efek bayangan kuning pada teks */
+    text-shadow: 0 0 8px rgba(212, 160, 23, 0.6);
 }
 
-.nav-item.active .nav-link,
-.nav-link.active {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff !important;
-    font-weight: 500;
+/* Logo Section - Tambah sedikit glow di bawah logo */
+.nav-item:first-child {
+    border-bottom: 1px solid rgba(212, 160, 23, 0.2);
+    margin-bottom: 15px;
 }
 
-/* Section Headers */
-.nav-link[style*="cursor: default"] {
-    pointer-events: none;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-    margin-top: 4px;
-}
-
-.nav-link[style*="cursor: default"]:hover {
-    background-color: transparent;
-    transform: none;
-}
-
-/* Icons */
-.sidebar-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-}
-
-.sidebar-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* Sidebar Text */
-.sidebar-text {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* Brand Section */
-.nav-item:first-child .nav-link {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-item:first-child .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Dividers */
-.dropdown-divider {
-    opacity: 0.3;
-}
-
-/* Responsive */
-@media (max-width: 991.98px) {
-    .sidebar {
-        width: 100%;
-    }
-}
 </style>

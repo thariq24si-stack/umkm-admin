@@ -1,78 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Edit User - Dashboard Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
-    <style>
-        .preview-container {
-            background: #f8f9fa;
-            border: 2px dashed #dee2e6;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-        }
-        .img-preview-user {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 4px solid #fff;
-        }
-    </style>
-</head>
-
-<body>
-    {{-- Alert Notifications --}}
-    <div class="position-fixed top-0 start-50 translate-middle-x mt-3 z-3" style="width: 90%; max-width: 600px;">
-        @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        @endif
-        @if(session('error'))
-            <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
-                {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        @endif
-    </div>
-
-    {{-- Sidebar --}}
-    <nav id="sidebarMenu" class="sidebar d-lg-block bg-black text-white collapse" data-simplebar>
-        <div class="sidebar-inner px-4 pt-3">
-            <ul class="nav flex-column pt-3 pt-md-0">
-                <li class="nav-item mb-4 text-center">
-                    <a href="/" class="nav-link">
-                         <img src="{{ asset('assets-admin/img/produk/logo-umkm.png') }}" alt="Logo" style="width: 120px; height: auto;">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link">
-                        <span class="sidebar-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('produk.index') }}" class="nav-link">
-                        <span class="sidebar-text">Produk</span>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="#" class="nav-link">
-                        <span class="sidebar-text">User Settings</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+@extends('layouts.admin.app')
+@section('content')
     <main class="content">
-        {{-- Breadcrumb --}}
+        
         <div class="py-4">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -160,9 +90,6 @@
             </div>
         </div>
 
-        <footer class="bg-white rounded shadow p-4 mb-4 mt-4 text-center">
-            <p class="mb-0 text-gray-700">© {{ date('Y') }} <span class="text-primary fw-bold">Thariq Dashboard</span></p>
-        </footer>
     </main>
 
     {{-- Scripts --}}
@@ -190,3 +117,4 @@
     </script>
 </body>
 </html>
+@endsection

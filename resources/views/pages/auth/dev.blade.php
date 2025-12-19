@@ -37,15 +37,15 @@
                         <h5 class="h6 text-uppercase text-muted fw-bold mb-4">Connect With Me</h5>
                         
                         <div class="d-flex justify-content-center gap-3">
-                            <a href="https://linkedin.com/in/usernameanda" target="_blank" class="btn btn-icon-only btn-pill btn-outline-info" title="LinkedIn">
+                            <a href="https://linkedin.com/in/THARIQ ALFAYYADH" target="_blank" class="btn btn-icon-only btn-pill btn-outline-info" title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
 
-                            <a href="https://github.com/usernameanda" target="_blank" class="btn btn-icon-only btn-pill btn-outline-dark" title="GitHub">
+                            <a href="https://github.com/thariq24si-stack" target="_blank" class="btn btn-icon-only btn-pill btn-outline-dark" title="GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
 
-                            <a href="https://instagram.com/usernameanda" target="_blank" class="btn btn-icon-only btn-pill btn-outline-danger" title="Instagram">
+                            <a href="https://instagram.com/thariqalfayyaadh" target="_blank" class="btn btn-icon-only btn-pill btn-outline-danger" title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
 
