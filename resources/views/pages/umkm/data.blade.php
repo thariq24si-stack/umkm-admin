@@ -53,13 +53,13 @@
                         <table class="table table-centered table-nowrap mb-0 rounded">
                             <thead class="thead-light">
                                 <tr>
-                                    <th class="border-0 rounded-start">No</th>
-                                    <th class="border-0">Nama Usaha</th>
-                                    <th class="border-0">Pemilik (Warga)</th>
-                                    <th class="border-0">Kategori</th>
-                                    <th class="border-0">Alamat</th>
-                                    <th class="border-0">Kontak</th>
-                                    <th class="border-0 rounded-end text-center">Aksi</th>
+                                    <th> <span class="badge bg-primary">No</span></th>
+                                    <th> <span class="badge bg-secondary">Nama Usaha</th>
+                                    <th> <span class="badge bg-info">Pemilik (Warga)</th>
+                                    <th> <span class="badge bg-success">Kategori</th>
+                                    <th> <span class="badge bg-danger">Alamat</th>
+                                    <th> <span class="badge bg-primary">Kontak</th>
+                                    <th> <span class="badge bg-warning text-dark">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

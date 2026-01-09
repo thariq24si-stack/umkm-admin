@@ -31,10 +31,8 @@ class UmkmController extends Controller
 
 public function create()
 {   
-    // Mengambil data warga untuk dropdown
     $dataWarga = \App\Models\Warga::orderBy('first_name', 'asc')->get();
     
-    // Pastikan variabel $dataWarga ini dikirim ke view
     return view('pages.Umkm.umkm', compact('dataWarga'));
 }
 
