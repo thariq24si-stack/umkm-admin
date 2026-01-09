@@ -13,10 +13,8 @@ class UmkmController extends Controller
      */
     public function index(Request $request)
     {
-        // Kolom yang bisa dicari (sesuai tabel UMKM)
         $searchableColumns = ['nama_usaha', 'kategori', 'alamat'];
 
-        // Mengambil data UMKM dengan relasi pemilik (Warga)
         $umkms = Umkm::with('pemilik')
             ->when($request->search, function ($query) use ($request, $searchableColumns) {
                 foreach ($searchableColumns as $column) {
@@ -27,15 +25,12 @@ class UmkmController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('pages.Umkm.data', compact('umkms'));
+        return view('pages.umkm.data', compact('umkms'));
     }
 
-    /**
-     * Menampilkan form Tambah UMKM
-     */
-    // FUNGSI UNTUK HALAMAN TAMBAH (Klik tombol tambah)
+
 public function create()
-{
+{   
     // Mengambil data warga untuk dropdown
     $dataWarga = \App\Models\Warga::orderBy('first_name', 'asc')->get();
     
