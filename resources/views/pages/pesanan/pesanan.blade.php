@@ -10,7 +10,7 @@
     </nav>
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Tambah Pesanan (Multi-Produk)</h1>
+            <h1 class="h4">Tambah Pesanan & detail pesanan</h1>
             <p class="mb-0">Pilih warga dan tambahkan beberapa produk dalam satu transaksi.</p>
         </div>
     </div>

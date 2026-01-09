@@ -132,7 +132,8 @@
 
                 <div class="flex items-center">
                     <input type="checkbox" id="remember" class="rounded bg-gray-700 border-gray-600 text-accent-yellow focus:ring-accent-yellow">
-                    <label for="remember" class="ml-2 text-xs text-gray-400">Ingat saya di perangkat ini</label>
+                    <label for="remember" class="ml-2 text-xs text-gray-400">Sudah 17 tahun?
+                    </label>
                 </div>
 
                 <button type="submit" class="btn-primary-custom w-full py-3.5 rounded-lg text-sm shadow-lg">

@@ -59,6 +59,7 @@
                                     <th> <span class="badge bg-success">Kategori</th>
                                     <th> <span class="badge bg-danger">Alamat</th>
                                     <th> <span class="badge bg-primary">Kontak</th>
+                                     <th> <span class="badge bg-primary">foto</th>
                                     <th> <span class="badge bg-warning text-dark">Aksi</th>
                                 </tr>
                             </thead>
