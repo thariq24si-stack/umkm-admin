@@ -142,7 +142,7 @@
 
             <div class="mt-12 pt-6 border-t border-gray-800 text-center">
                 <p class="text-gray-500 text-[10px] uppercase tracking-[0.2em]">
-                    &copy; 2025 Sistem Informasi Terpadu
+                    &copy; 2025 SISTEM ADMIN UMKM 
                 </p>
             </div>
         </div>

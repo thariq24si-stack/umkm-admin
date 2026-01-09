@@ -32,7 +32,6 @@
                     @method('PUT')
 
                     <div class="row g-4">
-                        {{-- KOLOM KIRI: BIODATA --}}
                         <div class="col-md-7">
                             <h5 class="form-section-title">Informasi Pribadi</h5>
                             <div class="row">

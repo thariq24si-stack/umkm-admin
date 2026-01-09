@@ -129,7 +129,6 @@
                  alt="Foto Produk"
                  onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name={{ urlencode($item->nama_produk) }}&background=f0f2f5&color=6c757d';">
         @else
-            {{-- Tampilan jika data gambar di database kosong (Placeholder Inisial) --}}
             <img src="https://ui-avatars.com/api/?name={{ urlencode($item->nama_produk) }}&background=f0f2f5&color=6c757d&size=128"
                  width="45" height="45" 
                  class="rounded-circle border" 

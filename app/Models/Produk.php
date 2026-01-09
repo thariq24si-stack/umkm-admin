@@ -19,6 +19,7 @@ protected $fillable = [
         return $this->morphMany(Media::class, 'mediaable', 'ref_table', 'ref_id');
     }
     
+    
 public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
 {
     foreach ($filterableColumns as $column) {
@@ -39,4 +40,10 @@ public function scopeSearch($query, $request, array $columns)
         });
     }
 }
+public function umkm()
+{
+    return $this->belongsTo(Umkm::class, 'umkm_id', 'umkm_id');
 }
+}
+
+

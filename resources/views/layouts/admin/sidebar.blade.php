@@ -106,6 +106,22 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('umkm.index') }}" class="nav-link d-flex align-items-center py-2 ps-4">
+                    <span class="sidebar-icon me-3">
+                        <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    <span class="sidebar-text">Umkm</span>
+                </a>
+            </li>
+
+            
+
             <li role="separator" class="dropdown-divider my-3 border-gray-700"></li>
 
             <!-- Fitur Section -->
@@ -131,6 +147,19 @@
                         </svg>
                     </span>
                     <span class="sidebar-text">Produk</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('pesanan.index') }}" class="nav-link d-flex align-items-center py-2 ps-4">
+                    <span class="sidebar-icon me-3">
+                        <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            width="20" height="20" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7.99999 10.8571 12 13.1428m-4.00001-2.2857L4 13.1428m3.99999-2.2857.00004-4.57139M12 13.1428v4.5715m0-4.5715-4.00001 2.2857M12 13.1428l4-2.2857m-4 2.2857V8.57143m0 4.57137 4 2.2858m-4 2.2857L7.99999 20M12 17.7143 16 20m-8.00001 0L4 17.7143v-4.5715M7.99999 20v-4.5715M4 13.1428l3.99999 2.2857M16 6.28571 12 4 8.00003 6.28571m7.99997 0v4.57139m0-4.57139-4 2.28572m4 2.28567 4 2.2858M8.00003 6.28571 12 8.57143m8 4.57147v4.5714L16 20m4-6.8571-4 2.2857M16 20v-4.5714" />
+                        </svg>
+                    </span>
+                    <span class="sidebar-text">Pesanan</span>
                 </a>
             </li>
 

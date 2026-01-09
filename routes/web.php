@@ -8,6 +8,8 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\WargaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WargaFileController;
+use App\Http\Controllers\UmkmController;
+use App\Http\Controllers\PesananController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -74,3 +76,15 @@ Route::delete('warga-files/{wargaFile}', [WargaFileController::class, 'destroy']
 Route::get('/developer-profile', function () {
     return view('pages.auth.dev'); 
 })->name('developer.profile');
+
+Route::get('/', [UmkmController::class, 'beranda'])->name('beranda');
+Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.index');
+Route::get('/admin/umkm/create', [UmkmController::class, 'create'])->name('umkm.create');
+Route::post('/admin/umkm', [UmkmController::class, 'store'])->name('umkm.store'); 
+Route::get('/umkm/{id}', [UmkmController::class, 'show'])->name('umkm.show');
+Route::get('/umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
+Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
+Route::delete('/umkm/{id}', [App\Http\Controllers\UmkmController::class, 'destroy'])->name('umkm.destroy');
+
+
+Route::resource('pesanan', PesananController::class);
